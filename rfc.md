@@ -99,6 +99,16 @@ One solution would be to have an initialization method that sets up the species 
 The top example seems a little uglier than the alternative below, but saves us from
 including `drakeSpecies` everywhere. Thoughts?
 
+Edit: Or maybe we can keep the top solution but make it cleaner by using
+
+```
+  import biologica from `biologica`
+  const { organism, breed } = biologica(drakeSpecies)
+
+  const org1 = organism(...)
+  const child = breed(org1, org2)
+```
+
 ## Small problem of not using classes
 
 This is probably not so important, but classes with methods can often be read in a
