@@ -65,11 +65,11 @@ this may result in some awkward syntax.
     sex: "male"
   }): Organism
 
-  breed(org: Organism, org: Organism, crossover=true): Organism
+  breed(mother: Organism, father: Organism, crossover=true): Organism
 
-  breed(org: Organism, org: Organism, quantity: number, crossover=true): Organism[]
+  breed(mother: Organism, father: Organism, quantity: number, crossover=true): Organism[]
 
-  fertilize(gamete: Gamete, gamete: Gamete): Organism
+  fertilize(femaleGamete: Gamete, maleGamete: Gamete): Organism
 ```
 
 ## Problem: Species
@@ -130,8 +130,8 @@ let's not.)
   a1-a2 b1- -c2 d1 e1-[e2, e3] f1-^[f3] XY
 ```
 
-This makes the new dashed syntax the prime format (though we probably need to suport authoring
-with the old `a:a1,b:a1` synatax) and adds a couple features Geni* has been needing
+This makes the new dashed syntax the prime format (though we probably need to support authoring
+with the old `a:a1,b:a1` syntax) and adds a couple features Geni* has been needing
 
  * `a1-a2 b1- -c2`  
    Any allele listed on one side or the other of a dash indicates a requirement for that
@@ -156,7 +156,7 @@ with the old `a:a1,b:a1` synatax) and adds a couple features Geni* has been need
 
 ## Gametes
 
-Gametes are generated through meiosis, and it's useful to know where the crossovers occured
+Gametes are generated through meiosis, and it's useful to know where the crossovers occurred
 and the provenance of the alleles, so that we can accurately depict a meiosis animation if
 needed.
 
@@ -198,7 +198,7 @@ In 1.0 we pass back an object with gametes and metadata as separate properties. 
 * haploidCells  
   These are four cells which become the gamete cells, but here we specify which chromatid
   ends up in each cell, rather than their actual alleles. We need to specify chromatids
-  beause the actual alleles may be identical, but we still want to know which one came
+  because the actual alleles may be identical, but we still want to know which one came
   from which parent.
 * gametes  
   The genotype of each gamete. This is redundant and can be deduced from the above, but it
